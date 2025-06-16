@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: El Futuro del Trabajo para 2030</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 500px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-[#2D3142] mb-2">El Futuro del Trabajo</h1>
+            <p class="text-lg md:text-xl text-[#00A6ED] font-bold">Un Vistazo a las Tendencias, Habilidades y Estrategias para 2030</p>
+            <p class="text-sm text-gray-500 mt-2">Basado en el Informe "Future of Jobs Report 2025" del Foro Económico Mundial.</p>
+        </header>
+
+        <main class="space-y-16">
+
+            <section id="panorama-general" class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#2D3142] mb-4">El Panorama General del Cambio</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                    La narrativa sobre el futuro del trabajo no es simplemente de pérdida, sino de una profunda transformación. La IA y la automatización están creando nuevas oportunidades a una escala masiva, remodelando los roles existentes y demandando una nueva era de adaptación.
+                </p>
+                <div class="chart-container" style="height: 300px; max-height: 300px;">
+                    <canvas id="jobChangeChart"></canvas>
+                </div>
+            </section>
+
+            <section id="empleos-movimiento" class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#2D3142] mb-4">Empleos en Movimiento</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                    Algunos roles experimentarán un crecimiento explosivo mientras que otros, especialmente aquellos basados en tareas repetitivas, verán una disminución. A continuación se muestran los 15 principales trabajos en crecimiento y declive, tanto en volumen (los más grandes) como en tasa de cambio (los más rápidos).
+                </p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-bold text-xl text-center mb-4 text-[#7FB800]">▲ Empleos de Mayor Crecimiento (Volumen)</h3>
+                        <div class="chart-container" style="height: 400px;">
+                            <canvas id="largestGrowingJobsChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-center mb-4 text-[#F6511D]">▼ Empleos de Mayor Declive (Volumen)</h3>
+                        <div class="chart-container" style="height: 400px;">
+                            <canvas id="largestDecliningJobsChart"></canvas>
+                        </div>
+                    </div>
+                     <div>
+                        <h3 class="font-bold text-xl text-center mb-4 text-[#7FB800]">▲ Empleos de Crecimiento Más Rápido (Tasa)</h3>
+                        <div class="chart-container" style="height: 400px;">
+                            <canvas id="fastestGrowingJobsChart"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-center mb-4 text-[#F6511D]">▼ Empleos de Declive Más Rápido (Tasa)</h3>
+                        <div class="chart-container" style="height: 400px;">
+                            <canvas id="fastestDecliningJobsChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="habilidades-futuro" class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#2D3142] mb-4">Las Habilidades que Necesitarás</h2>
+                 <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                    Para prosperar en la próxima década, la demanda se centra en una mezcla de competencias cognitivas, sociales y tecnológicas. El aprendizaje continuo y la adaptabilidad son más cruciales que nunca.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="font-bold text-xl text-center mb-4 text-[#00A6ED]">Habilidades Clave para 2025</h3>
+                        <ul id="coreSkillsList" class="space-y-3"></ul>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xl text-center mb-4 text-[#00A6ED]">Top 10 Habilidades de Crecimiento Más Rápido para 2030</h3>
+                        <ul id="fastestGrowingSkillsList" class="space-y-3"></ul>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="dei" class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#2D3142] mb-4">El Imperativo Humano: Diversidad, Equidad e Inclusión (DEI)</h2>
+                <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                    Más allá de la tecnología, el futuro del trabajo es fundamentalmente humano. Las empresas reconocen que la creación de equipos diversos, equitativos e inclusivos no es solo una obligación ética, sino una ventaja estratégica para la innovación y la resiliencia.
+                </p>
+                 <div class="text-center my-8">
+                    <div class="inline-block bg-[#00A6ED] text-white p-6 rounded-2xl shadow-xl">
+                        <p class="text-6xl font-black">83%</p>
+                        <p class="font-bold">de los empleadores tienen a DEI como una prioridad</p>
+                    </div>
+                </div>
+                <div>
+                     <h3 class="font-bold text-xl text-center mb-4 text-[#2D3142]">Grupos Prioritarios para Programas DEI</h3>
+                    <div class="chart-container" style="height: 350px;">
+                        <canvas id="deiChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="respuesta-empresas" class="bg-white rounded-2xl shadow-lg p-6 md:p-8">
+                 <h2 class="text-3xl font-bold text-center text-[#2D3142] mb-4">¿Cómo se Están Adaptando las Empresas?</h2>
+                 <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                    La respuesta de las empresas a los avances de la IA se centra abrumadoramente en potenciar su fuerza laboral actual. La inversión en capital humano a través de la capacitación y el desarrollo de nuevas habilidades es la estrategia dominante, superando a la simple sustitución.
+                </p>
+                <div class="chart-container" style="height: 350px;">
+                    <canvas id="businessResponseChart"></canvas>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-16 py-8 border-t">
+            <p class="text-gray-600">Fuente: <a href="https://www.weforum.org/reports/the-future-of-jobs-report-2023/" target="_blank" class="text-[#00A6ED] hover:underline">Foro Económico Mundial - Future of Jobs Report 2025/2023</a>.</p>
+            <p class="text-sm text-gray-400 mt-2">Infografía generada dinámicamente. Prohibido el uso de SVG y Mermaid JS.</p>
+        </footer>
+
+    </div>
+
+<script>
+const wrapText = (str) => {
+    const maxLength = 16;
+    if (str.length <= maxLength) {
+        return str;
+    }
+    const words = str.split(' ');
+    const lines = [];
+    let currentLine = '';
+    for (const word of words) {
+        if ((currentLine + ' ' + word).length > maxLength && currentLine.length > 0) {
+            lines.push(currentLine);
+            currentLine = word;
+        } else {
+            currentLine = currentLine ? currentLine + ' ' + word : word;
+        }
+    }
+    if (currentLine) {
+        lines.push(currentLine);
+    }
+    return lines;
+};
+
+const tooltipTitleCallback = (tooltipItems) => {
+    const item = tooltipItems[0];
+    let label = item.chart.data.labels[item.dataIndex];
+    if (Array.isArray(label)) {
+        return label.join(' ');
+    }
+    return label;
+};
+
+const chartJsOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+        legend: {
+            display: false
+        },
+        tooltip: {
+            callbacks: {
+                title: tooltipTitleCallback
+            }
+        }
+    },
+    indexAxis: 'y',
+    scales: {
+        x: {
+            beginAtZero: true,
+            grid: {
+                display: false
+            },
+            ticks: {
+                 font: {
+                    weight: 'bold'
+                 }
+            }
+        },
+        y: {
+            grid: {
+                display: false
+            },
+            ticks: {
+                 font: {
+                    weight: 'bold'
+                 }
+            }
+        }
+    }
+};
+
+const palette = {
+    blue: '#00A6ED',
+    green: '#7FB800',
+    yellow: '#FFB400',
+    red: '#F6511D',
+    dark: '#2D3142',
+    gray: '#E0E0E0'
+};
+
+new Chart(document.getElementById('jobChangeChart'), {
+    type: 'doughnut',
+    data: {
+        labels: ['Empleos Creados (170M)', 'Empleos Desplazados (92M)', 'Empleos que Continúan (1,090M)'],
+        datasets: [{
+            data: [170, 92, 1090],
+            backgroundColor: [palette.green, palette.red, palette.gray],
+            borderColor: '#ffffff',
+            borderWidth: 4
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                 labels: {
+                    font: {
+                        size: 14,
+                        weight: 'bold'
+                    }
+                }
+            },
+            tooltip: {
+                callbacks: {
+                     title: (tooltipItems) => tooltipItems[0].label
+                }
+            }
+        },
+        cutout: '60%'
+    }
+});
+
+const largestGrowingJobsData = {
+    labels: ["Trabajadores agrícolas", "Conductores de camiones", "Desarrolladores de software", "Constructores y acabadores", "Vendedores de tiendas", "Procesadores de alimentos", "Conductores de auto/moto", "Profesionales de enfermería", "Trabajadores de servicio de alimentos", "Gerentes de operaciones", "Trabajadores sociales", "Gerentes de proyecto", "Profesores universitarios", "Profesores de secundaria", "Cuidadores personales"].map(wrapText),
+    datasets: [{
+        label: 'Crecimiento',
+        data: [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1].reverse(),
+        backgroundColor: palette.green,
+    }]
+};
+new Chart(document.getElementById('largestGrowingJobsChart'), {
+    type: 'bar',
+    data: largestGrowingJobsData,
+    options: chartJsOptions
+});
+
+const largestDecliningJobsData = {
+    labels: ["Cajeros y taquilleros", "Asistentes administrativos", "Conserjes y limpiadores", "Empleados de registro de materiales", "Impresores", "Empleados de contabilidad", "Auditores y contadores", "Asistentes de transporte", "Guardias de seguridad", "Cajeros de banco", "Empleados de entrada de datos", "Trabajadores de servicio al cliente", "Diseñadores gráficos", "Gerentes de servicios empresariales", "Ajustadores de reclamos"].map(wrapText),
+    datasets: [{
+        label: 'Declive',
+        data: [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1].reverse(),
+        backgroundColor: palette.red,
+    }]
+};
+new Chart(document.getElementById('largestDecliningJobsChart'), {
+    type: 'bar',
+    data: largestDecliningJobsData,
+    options: chartJsOptions
+});
+
+const fastestGrowingJobsData = {
+    labels: ["Especialistas en Big Data", "Ingenieros FinTech", "Especialistas en IA y ML", "Desarrolladores de software", "Especialistas en gestión de seguridad", "Especialistas en almacenamiento de datos", "Especialistas en vehículos autónomos", "Diseñadores de UI y UX", "Conductores de camiones ligeros", "Especialistas en IoT", "Analistas de datos", "Ingenieros ambientales", "Analistas de seguridad de la información", "Ingenieros DevOps", "Ingenieros de energías renovables"].map(wrapText),
+    datasets: [{
+        label: 'Crecimiento Rápido',
+        data: [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1].reverse(),
+        backgroundColor: palette.green,
+    }]
+};
+new Chart(document.getElementById('fastestGrowingJobsChart'), {
+    type: 'bar',
+    data: fastestGrowingJobsData,
+    options: chartJsOptions
+});
+
+const fastestDecliningJobsData = {
+    labels: ["Empleados de servicios postales", "Cajeros de banco", "Empleados de entrada de datos", "Cajeros y taquilleros", "Secretarios administrativos", "Impresores", "Empleados de contabilidad", "Empleados de registro de materiales", "Asistentes de transporte", "Vendedores puerta a puerta", "Diseñadores gráficos", "Ajustadores de reclamos", "Funcionarios legales", "Secretarios legales", "Telemarketers"].map(wrapText),
+    datasets: [{
+        label: 'Declive Rápido',
+        data: [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1].reverse(),
+        backgroundColor: palette.red,
+    }]
+};
+new Chart(document.getElementById('fastestDecliningJobsChart'), {
+    type: 'bar',
+    data: fastestDecliningJobsData,
+    options: chartJsOptions
+});
+
+const coreSkillsData = [
+    { name: 'Pensamiento analítico', category: 'Cognitive skills' },
+    { name: 'Resiliencia, flexibilidad y agilidad', category: 'Self-efficacy' },
+    { name: 'Liderazgo e influencia social', category: 'Working with others' },
+    { name: 'Pensamiento creativo', category: 'Cognitive skills' },
+    { name: 'Motivación y autoconciencia', category: 'Self-efficacy' },
+    { name: 'Alfabetización tecnológica', category: 'Technology skills' },
+    { name: 'Empatía y escucha activa', category: 'Engagement skills' },
+    { name: 'Curiosidad y aprendizaje continuo', category: 'Self-efficacy' },
+    { name: 'Gestión de talento', category: 'Management skills' },
+    { name: 'Orientación al servicio y atención al cliente', category: 'Engagement skills' }
+];
+
+const fastestSkillsData = [
+    { name: 'IA y big data', category: 'Technology skills' },
+    { name: 'Redes y ciberseguridad', category: 'Technology skills' },
+    { name: 'Alfabetización tecnológica', category: 'Technology skills' },
+    { name: 'Pensamiento creativo', category: 'Cognitive skills' },
+    { name: 'Resiliencia, flexibilidad y agilidad', category: 'Self-efficacy' },
+    { name: 'Curiosidad y aprendizaje continuo', category: 'Self-efficacy' },
+    { name: 'Liderazgo e influencia social', category: 'Working with others' },
+    { name: 'Gestión de talento', category: 'Management skills' },
+    { name: 'Pensamiento analítico', category: 'Cognitive skills' },
+    { name: 'Gestión ambiental', category: 'Ethics' }
+];
+
+const skillCategoryColors = {
+    'Cognitive skills': palette.green,
+    'Self-efficacy': palette.dark,
+    'Working with others': '#6a994e',
+    'Management skills': palette.blue,
+    'Technology skills': '#bc4749',
+    'Engagement skills': palette.yellow,
+    'Ethics': '#a5a58d'
+};
+
+const populateSkillsList = (elementId, data) => {
+    const list = document.getElementById(elementId);
+    data.forEach((skill, index) => {
+        const color = skillCategoryColors[skill.category] || palette.gray;
+        const li = document.createElement('li');
+        li.className = 'flex items-center bg-gray-50 p-3 rounded-lg shadow-sm';
+        li.innerHTML = `
+            <span class="flex-shrink-0 h-6 w-6 rounded-full mr-4" style="background-color: ${color}"></span>
+            <span class="font-bold text-gray-700 flex-grow">${index + 1}. ${skill.name}</span>
+            <span class="text-xs font-semibold text-white px-2 py-1 rounded-full" style="background-color: ${color}">${skill.category}</span>
+        `;
+        list.appendChild(li);
+    });
+};
+populateSkillsList('coreSkillsList', coreSkillsData);
+populateSkillsList('fastestGrowingSkillsList', fastestSkillsData);
+
+const deiData = {
+    labels: ['Mujeres', 'Personas con discapacidad', 'Jóvenes (Gen Z)', 'Trabajadores mayores (+55)', 'Personas LGBTQI+', 'Origen religioso/étnico', 'Bajos ingresos', 'Migrantes/refugiados'].map(wrapText),
+    datasets: [{
+        label: '% de empleadores que lo priorizan',
+        data: [76, 56, 52, 42, 32, 27, 24, 21],
+        backgroundColor: [palette.blue, palette.green, palette.yellow, palette.dark, palette.red, '#6a994e', '#a5a58d', '#bc4749']
+    }]
+};
+new Chart(document.getElementById('deiChart'), {
+    type: 'bar',
+    data: deiData,
+    options: chartJsOptions
+});
+
+const businessResponseData = {
+    labels: ['Capacitar fuerza laboral existente', 'Contratar con habilidades para diseñar IA', 'Contratar con habilidades para trabajar con IA', 'Reorientar la organización', 'Hacer transición de personal internamente', 'Reducir personal'].map(wrapText),
+    datasets: [{
+        label: '% de empresas',
+        data: [77, 69, 62, 49, 47, 41],
+        backgroundColor: palette.blue
+    }]
+};
+new Chart(document.getElementById('businessResponseChart'), {
+    type: 'bar',
+    data: businessResponseData,
+    options: chartJsOptions
+});
+</script>
+
+</body>
+</html>
